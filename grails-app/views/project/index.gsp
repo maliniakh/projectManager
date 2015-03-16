@@ -24,18 +24,19 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn defaultOrder="asc" property="priority" title="${message(code: 'project.priority.label', default: 'Priority')}" />
+						<g:sortableColumn property="priority" defaultOrder="asc" title="${message(code: 'project.priority.label', default: 'Priority')}" />
 					
 						<g:sortableColumn property="name" title="${message(code: 'project.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="code" title="${message(code: 'project.code.label', default: 'Code')}" />
-					
-						<g:sortableColumn property="deliveryDate" format="dd-MM-yyyy" title="${message(code: 'project.deliveryDate.label', default: 'Delivery Date')}" />
-					
+
+						<g:sortableColumn property="techLead" title="${message(code: 'project.techLead.label', default: 'Tech Lead')}" />
+
 						<g:sortableColumn property="manager" title="${message(code: 'project.manager.label', default: 'Manager')}" />
-					
-						<g:sortableColumn property="phase" title="${message(code: 'project.phase.label', default: 'Phase')}" />
-					
+
+						<g:sortableColumn property="deliveryDate" format="dd-MM-yyyy" title="${message(code: 'project.deliveryDate.label', default: 'Delivery Date')}" />
+
+                        <g:sortableColumn property="phase" title="${message(code: 'project.phase.label', default: 'Phase')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -48,11 +49,13 @@
 					
 						<td>${fieldValue(bean: projectInstance, field: "code")}</td>
 					
-						<td><g:formatDate date="${projectInstance.deliveryDate}" format="dd-MM-yyyy" /></td>
+						<td>${fieldValue(bean: projectInstance, field: "techLead")}</td>
 					
 						<td>${fieldValue(bean: projectInstance, field: "manager")}</td>
 					
-						<td>${fieldValue(bean: projectInstance, field: "phase")}</td>
+						<td><g:formatDate format="dd-MM-yyyy" date="${projectInstance.deliveryDate}" /></td>
+
+                        <td>${fieldValue(bean: projectInstance, field: "phase")}</td>
 					
 					</tr>
 				</g:each>

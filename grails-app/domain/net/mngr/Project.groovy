@@ -13,9 +13,11 @@ class Project {
     static constraints = {
         priority (min: 1)
         name (shared: "alphanumeric")
-        code (shared: "alphanumeric")
-        techLead (matches: /[a-zA-Z ]+/)
-        manager (matches: /[a-zA-Z ]+/)
+        code (nullable: true, shared: "alphanumeric")
+        techLead (nullable: true, matches: /[a-zA-Z ]+/)
+        manager (nullable: true, matches: /[a-zA-Z ]+/)
+        deliveryDate (nullable: false)
+        phase (nullable: false)
     }
 
     @Override

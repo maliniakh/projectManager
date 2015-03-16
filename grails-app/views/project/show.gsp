@@ -22,16 +22,6 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list project">
-			
-				<g:if test="${projectInstance?.priority}">
-				<li class="fieldcontain">
-					<span id="priority-label" class="property-label"><g:message code="project.priority.label" default="Priority" /></span>
-					
-						<span class="property-value" aria-labelledby="priority-label"><g:fieldValue bean="${projectInstance}" field="priority"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${projectInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="project.name.label" default="Name" /></span>
@@ -50,11 +40,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${projectInstance?.deliveryDate}">
+				<g:if test="${projectInstance?.techLead}">
 				<li class="fieldcontain">
-					<span id="deliveryDate-label" class="property-label"><g:message code="project.deliveryDate.label" default="Delivery Date" /></span>
+					<span id="techLead-label" class="property-label"><g:message code="project.techLead.label" default="Tech Lead" /></span>
 					
-						<span class="property-value" aria-labelledby="deliveryDate-label"><g:formatDate date="${projectInstance?.deliveryDate}" /></span>
+						<span class="property-value" aria-labelledby="techLead-label"><g:fieldValue bean="${projectInstance}" field="techLead"/></span>
 					
 				</li>
 				</g:if>
@@ -68,6 +58,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${projectInstance?.deliveryDate}">
+				<li class="fieldcontain">
+					<span id="deliveryDate-label" class="property-label"><g:message code="project.deliveryDate.label" default="Delivery Date" /></span>
+					
+						<span class="property-value" aria-labelledby="deliveryDate-label"><g:formatDate format="dd-MM-yyyy" date="${projectInstance?.deliveryDate}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${projectInstance?.phase}">
 				<li class="fieldcontain">
 					<span id="phase-label" class="property-label"><g:message code="project.phase.label" default="Phase" /></span>
@@ -76,15 +75,15 @@
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${projectInstance?.techLead}">
-				<li class="fieldcontain">
-					<span id="techLead-label" class="property-label"><g:message code="project.techLead.label" default="Tech Lead" /></span>
-					
-						<span class="property-value" aria-labelledby="techLead-label"><g:fieldValue bean="${projectInstance}" field="techLead"/></span>
-					
-				</li>
-				</g:if>
+
+                <g:if test="${projectInstance?.priority}">
+                    <li class="fieldcontain">
+                        <span id="priority-label" class="property-label"><g:message code="project.priority.label" default="Priority" /></span>
+
+                        <span class="property-value" aria-labelledby="priority-label"><g:fieldValue bean="${projectInstance}" field="priority"/></span>
+
+                    </li>
+                </g:if>
 			
 			</ol>
 			<g:form url="[resource:projectInstance, action:'delete']" method="DELETE">
