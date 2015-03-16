@@ -86,6 +86,7 @@ class ProjectController {
         }
 
         projectInstance.delete flush:true
+        projectService.arrangePriorities();
 
         request.withFormat {
             form multipartForm {
